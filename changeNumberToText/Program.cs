@@ -7,9 +7,9 @@ class Program
     {
         // TODO : keiskite FROM..TO skaicius pagal tai kiek spesite padaryt uzduociu. (-19...19, -99..99, ir tt.)
         // min skaicius 
-        const int FROM_NUMBER = -99;
+        const int FROM_NUMBER = -999;
         // max skaicius 
-        const int TO_NUMBER = 99;
+        const int TO_NUMBER = 999;
 
         string inputString = "";
         int inputNumber = 0;
@@ -90,36 +90,42 @@ class Program
         int desimtys = number / 10;
         int vienetai = number%10;
 
-        Console.WriteLine($"des {desimtys}, vien {vienetai}");
-
-        if ((desimtys == 1 && vienetai == 0) || desimtys!=1)
+        Console.WriteLine($"sim {simtai}, des {desimtys}, vien {vienetai}");
+        if (simtai != 0)
         {
+            desimtys = (number - (((number / 100) % 10) * 100))/10;
+            Console.WriteLine($"sim {simtai}, des {desimtys}, vien {vienetai}");
+            result = change1_9ToText(simtai, result);
+            result = changeHundredsToText(simtai, result);
             result = changeTensToText(desimtys, result);
+            if (desimtys == 1 && vienetai != 0 && simtai == 0)
+            {
+                result = changeTeensToText(vienetai, result);
+            }
+            result = change1_9ToText(vienetai, result);
+            
         }
 
-        if (desimtys == 1 && vienetai != 0)
+        if (simtai == 0)
         {
-            result = changeTeensToText(vienetai, result);    
-        }
-        else
-        {
-            switch (vienetai)
+            if ((desimtys == 1 && vienetai == 0) || desimtys != 1)
             {
-                case 1: result += " vienas"; break;
-                case 2: result += " du"; break;
-                case 3: result += " trys"; break;
-                case 4: result += " keturi"; break;
-                case 5: result += " penki"; break;
-                case 6: result += " sesi"; break;
-                case 7: result += " septyni"; break;
-                case 8: result += " astuoni"; break;
-                case 9: result += " devyni"; break;
+                result = changeTensToText(desimtys, result);
+            }
+
+            if (desimtys == 1 && vienetai != 0)
+            {
+                result = changeTeensToText(vienetai, result);
+            }
+            else
+            {
+                result = change1_9ToText(vienetai, result);
             }
         }
 
-
         return result;
     }
+
     static string changeTensToText(int desimtys, string result)
     {
         switch (desimtys)
@@ -154,9 +160,33 @@ class Program
         return result;
     }
 
+    static string change1_9ToText(int vienetai, string result)
+    {
+        switch (vienetai)
+        {
+            case 1: result += " vienas"; break;
+            case 2: result += " du"; break;
+            case 3: result += " trys"; break;
+            case 4: result += " keturi"; break;
+            case 5: result += " penki"; break;
+            case 6: result += " sesi"; break;
+            case 7: result += " septyni"; break;
+            case 8: result += " astuoni"; break;
+            case 9: result += " devyni"; break;
+        }
+        return result;
+    }
 
+    static string changeHundredsToText(int vienetai, string result)
+    {
+        switch (vienetai)
+        {
+            case 1: result += " simtas"; break;
+            default: result += " simtai"; break;
+        }
+        return result;
+    }
 
-    // TODO : sukurti funkcija kuri grazina skaiciu -19...19 zodziais - changeTeensToText
 
     // TODO : sukurti funkcija kuri grazina skaiciu -999...999 zodziais - changeHundredsToText
 
@@ -166,13 +196,6 @@ class Program
 
     // TODO : sukurti funkcija kuri grazina skaiciu -9999999999...9999999999 zodziais - changeBilllionsToText
 
-
-
-    //Skaiciai zodziais:  
-    // "minus"; 
-    // "nulis", "vienas", "du", "trys", "keturi", "penki", "sesi", "septyni", "astuoni", "devyni"; 
-    // "desimt", "vienualika", "dvylika", "trylika", "keturiolika", "penkiolika", "sesiolika", "septyniolika", "astuoniolika", "devyniolika"; 
-    // "dvidesimt", "trisdesimt", "keturiasdesimt", "penkiasdesimt", "sesiasdesimt", "septyniasdesimt", "astuoniasdesimt", "devyniasdesimt"; 
     // "simtas", "tukstantis", "milijonas", "milijardas"; 
     // "simtai", "tukstanciai", "milijonai", "milijardai"; 
     // "simtu", "tukstanciu", "milijonu", "milijardu"; 
