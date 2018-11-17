@@ -66,7 +66,14 @@ class Program
     // funkcija gauna true jei skaicius checkNumber yar tarp fromNumber ir toNumber (imtinai)
     private static bool checkIfNumberInRange(int fromNumber, int toNumber, int checkNumber)
     {
-        throw new NotImplementedException("TODO: Patikrinkite ar checkNumber yar tarp skaiciu fromNumber,  toNumber");
+        if (checkNumber >= fromNumber && checkNumber <= toNumber)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     // funkcija gauna int skaiciu, pakeicia ji i string teksta kuri zodziais nusako skaiciu. PVZ: -1684542 turi grazint - "minus vienas milijonas sesi simtai astuoniasdesimt keturi tukstanciai penki simtai keturiasdiasimt du"
