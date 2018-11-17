@@ -80,7 +80,11 @@ class Program
     static string changeOnesToText(int number)
     {
         string result = "";
-        if (number < 0) { result = "minus"; number = number * (-1); }
+        if (number < 0)
+        {
+            result = "minus";
+            number = number * (-1);
+        }
         switch (number)
         {
             case 1: result += " vienas"; break;
