@@ -5,7 +5,6 @@ class Program
 
     static void Main()
     {
-        // TODO : keiskite FROM..TO skaicius pagal tai kiek spesite padaryt uzduociu. (-19...19, -99..99, ir tt.)
         // min skaicius 
         const int FROM_NUMBER = -999;
         // max skaicius 
@@ -45,7 +44,6 @@ class Program
     // bendra funkcija apjungti visom funkcijom kurias jus sukursit.
     static string changeNumberToText(int number)
     {
-        // TODO : pakeiskite sita funkcija pagal savo poreiki. (tiek kiek skaiciu spesite apdorot.)
         return changeOnesToText(number);
     }
 
@@ -85,16 +83,15 @@ class Program
             result = "minus";
             number = number * (-1);
         }
-
         int simtai = number / 100;
         int desimtys = number / 10;
         int vienetai = number%10;
 
-        Console.WriteLine($"sim {simtai}, des {desimtys}, vien {vienetai}");
+        //Console.WriteLine($"sim {simtai}, des {desimtys}, vien {vienetai}");
         if (simtai != 0)
         {
             desimtys = (number - (((number / 100) % 10) * 100))/10;
-            Console.WriteLine($"sim {simtai}, des {desimtys}, vien {vienetai}");
+            //Console.WriteLine($"sim {simtai}, des {desimtys}, vien {vienetai}");
             result = change1_9ToText(simtai, result);
             result = changeHundredsToText(simtai, result);
             result = changeTensToText(desimtys, result);
@@ -188,7 +185,7 @@ class Program
     }
 
 
-    // TODO : sukurti funkcija kuri grazina skaiciu -999...999 zodziais - changeHundredsToText
+
 
     // TODO : sukurti funkcija kuri grazina skaiciu -9999...9999 zodziais - changeThousandsToText
 
@@ -196,7 +193,7 @@ class Program
 
     // TODO : sukurti funkcija kuri grazina skaiciu -9999999999...9999999999 zodziais - changeBilllionsToText
 
-    // "simtas", "tukstantis", "milijonas", "milijardas"; 
-    // "simtai", "tukstanciai", "milijonai", "milijardai"; 
+    //  "tukstantis", "milijonas", "milijardas"; 
+    //  "tukstanciai", "milijonai", "milijardai"; 
     // "simtu", "tukstanciu", "milijonu", "milijardu"; 
 }
