@@ -52,7 +52,15 @@ class Program
     // funkcija gauna string skaiciu, patikrina ar skaicius teisingu formatu. Pvz: "123", "-123" grazina true. "12a3", "1-23" grazina false.
     static bool checkIfGoodNumber(string dataToCheck)
     {
-        throw new NotImplementedException("TODO: grazinkite true, jei tekstas yra teisingas skaicius.");
+        int stringToInt;
+        if (int.TryParse(dataToCheck, out stringToInt))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     // funkcija gauna true jei skaicius checkNumber yar tarp fromNumber ir toNumber (imtinai)
