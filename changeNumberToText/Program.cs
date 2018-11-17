@@ -99,18 +99,7 @@ class Program
 
         if (desimtys == 1 && vienetai != 0)
         {
-            switch (vienetai)
-            {
-                case 1: result += " vienuolika"; break;
-                case 2: result += " dvylika"; break;
-                case 3: result += " trylika"; break;
-                case 4: result += " keturiolika"; break;
-                case 5: result += " penkiolika"; break;
-                case 6: result += " sesiolika"; break;
-                case 7: result += " septyniolika"; break;
-                case 8: result += " astuoniolika"; break;
-                case 9: result += " devyniolika"; break;
-            }
+            result = changeTeensToText(vienetai, result);    
         }
         else
         {
@@ -148,26 +137,43 @@ class Program
         return result;
     }
 
-
-
-        // TODO : sukurti funkcija kuri grazina skaiciu -19...19 zodziais - changeTeensToText
-
-        // TODO : sukurti funkcija kuri grazina skaiciu -999...999 zodziais - changeHundredsToText
-
-        // TODO : sukurti funkcija kuri grazina skaiciu -9999...9999 zodziais - changeThousandsToText
-
-        // TODO : sukurti funkcija kuri grazina skaiciu -9999999...9999999 zodziais - changeMillionsToText
-
-        // TODO : sukurti funkcija kuri grazina skaiciu -9999999999...9999999999 zodziais - changeBilllionsToText
-
-
-
-        //Skaiciai zodziais:  
-        // "minus"; 
-        // "nulis", "vienas", "du", "trys", "keturi", "penki", "sesi", "septyni", "astuoni", "devyni"; 
-        // "desimt", "vienualika", "dvylika", "trylika", "keturiolika", "penkiolika", "sesiolika", "septyniolika", "astuoniolika", "devyniolika"; 
-        // "dvidesimt", "trisdesimt", "keturiasdesimt", "penkiasdesimt", "sesiasdesimt", "septyniasdesimt", "astuoniasdesimt", "devyniasdesimt"; 
-        // "simtas", "tukstantis", "milijonas", "milijardas"; 
-        // "simtai", "tukstanciai", "milijonai", "milijardai"; 
-        // "simtu", "tukstanciu", "milijonu", "milijardu"; 
+    static string changeTeensToText(int vienetai, string result)
+    {
+        switch (vienetai)
+        {
+            case 1: result += " vienuolika"; break;
+            case 2: result += " dvylika"; break;
+            case 3: result += " trylika"; break;
+            case 4: result += " keturiolika"; break;
+            case 5: result += " penkiolika"; break;
+            case 6: result += " sesiolika"; break;
+            case 7: result += " septyniolika"; break;
+            case 8: result += " astuoniolika"; break;
+            case 9: result += " devyniolika"; break;
+        }
+        return result;
     }
+
+
+
+    // TODO : sukurti funkcija kuri grazina skaiciu -19...19 zodziais - changeTeensToText
+
+    // TODO : sukurti funkcija kuri grazina skaiciu -999...999 zodziais - changeHundredsToText
+
+    // TODO : sukurti funkcija kuri grazina skaiciu -9999...9999 zodziais - changeThousandsToText
+
+    // TODO : sukurti funkcija kuri grazina skaiciu -9999999...9999999 zodziais - changeMillionsToText
+
+    // TODO : sukurti funkcija kuri grazina skaiciu -9999999999...9999999999 zodziais - changeBilllionsToText
+
+
+
+    //Skaiciai zodziais:  
+    // "minus"; 
+    // "nulis", "vienas", "du", "trys", "keturi", "penki", "sesi", "septyni", "astuoni", "devyni"; 
+    // "desimt", "vienualika", "dvylika", "trylika", "keturiolika", "penkiolika", "sesiolika", "septyniolika", "astuoniolika", "devyniolika"; 
+    // "dvidesimt", "trisdesimt", "keturiasdesimt", "penkiasdesimt", "sesiasdesimt", "septyniasdesimt", "astuoniasdesimt", "devyniasdesimt"; 
+    // "simtas", "tukstantis", "milijonas", "milijardas"; 
+    // "simtai", "tukstanciai", "milijonai", "milijardai"; 
+    // "simtu", "tukstanciu", "milijonu", "milijardu"; 
+}
