@@ -79,9 +79,26 @@ class Program
     // funkcija gauna int skaiciu, pakeicia ji i string teksta kuri zodziais nusako skaiciu. PVZ: -1684542 turi grazint - "minus vienas milijonas sesi simtai astuoniasdesimt keturi tukstanciai penki simtai keturiasdiasimt du"
     static string changeOnesToText(int number)
     {
-        throw new NotImplementedException("TODO: grazinkite skaiciu -9...9 zodziais.");
+        string result = "";
+        if (number < 0) { result = "minus"; number = number * (-1); }
+        switch (number)
+        {
+            case 1: result += " vienas"; break;
+            case 2: result += " du"; break;
+            case 3: result += " trys"; break;
+            case 4: result += " keturi"; break;
+            case 5: result += " penki"; break;
+            case 6: result += " sesi"; break;
+            case 7: result += " septyni"; break;
+            case 8: result += " astuoni"; break;
+            case 9: result += " devyni"; break;
+        }
+
+
+        return result;
     }
 
+    
     // TODO : sukurti funkcija kuri grazina skaiciu -19...19 zodziais - changeTeensToText
 
     // TODO : sukurti funkcija kuri grazina skaiciu -99...99 zodziais - changeTensToText
