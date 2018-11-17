@@ -7,9 +7,9 @@ class Program
     {
         // TODO : keiskite FROM..TO skaicius pagal tai kiek spesite padaryt uzduociu. (-19...19, -99..99, ir tt.)
         // min skaicius 
-        const int FROM_NUMBER = -9;
+        const int FROM_NUMBER = -99;
         // max skaicius 
-        const int TO_NUMBER = 9;
+        const int TO_NUMBER = 99;
 
         string inputString = "";
         int inputNumber = 0;
@@ -85,44 +85,89 @@ class Program
             result = "minus";
             number = number * (-1);
         }
-        switch (number)
+
+        int simtai = number / 100;
+        int desimtys = number / 10;
+        int vienetai = number%10;
+
+        Console.WriteLine($"des {desimtys}, vien {vienetai}");
+
+        if ((desimtys == 1 && vienetai == 0) || desimtys!=1)
         {
-            case 1: result += " vienas"; break;
-            case 2: result += " du"; break;
-            case 3: result += " trys"; break;
-            case 4: result += " keturi"; break;
-            case 5: result += " penki"; break;
-            case 6: result += " sesi"; break;
-            case 7: result += " septyni"; break;
-            case 8: result += " astuoni"; break;
-            case 9: result += " devyni"; break;
+            result = changeTensToText(desimtys, result);
+        }
+
+        if (desimtys == 1 && vienetai != 0)
+        {
+            switch (vienetai)
+            {
+                case 1: result += " vienuolika"; break;
+                case 2: result += " dvylika"; break;
+                case 3: result += " trylika"; break;
+                case 4: result += " keturiolika"; break;
+                case 5: result += " penkiolika"; break;
+                case 6: result += " sesiolika"; break;
+                case 7: result += " septyniolika"; break;
+                case 8: result += " astuoniolika"; break;
+                case 9: result += " devyniolika"; break;
+            }
+        }
+        else
+        {
+            switch (vienetai)
+            {
+                case 1: result += " vienas"; break;
+                case 2: result += " du"; break;
+                case 3: result += " trys"; break;
+                case 4: result += " keturi"; break;
+                case 5: result += " penki"; break;
+                case 6: result += " sesi"; break;
+                case 7: result += " septyni"; break;
+                case 8: result += " astuoni"; break;
+                case 9: result += " devyni"; break;
+            }
         }
 
 
         return result;
     }
+    static string changeTensToText(int desimtys, string result)
+    {
+        switch (desimtys)
+        {
+            case 1: result += " desimt"; break;
+            case 2: result += " dvidesimt"; break;
+            case 3: result += " trisdesimt"; break;
+            case 4: result += " keturiasdesimt"; break;
+            case 5: result += " penkiasdesimt"; break;
+            case 6: result += " sesiasdesimt"; break;
+            case 7: result += " septyniasdesimt"; break;
+            case 8: result += " astuoniasdesimt"; break;
+            case 9: result += " devyniasdesimt"; break;
+        }
+        return result;
+    }
 
-    
-    // TODO : sukurti funkcija kuri grazina skaiciu -19...19 zodziais - changeTeensToText
-
-    // TODO : sukurti funkcija kuri grazina skaiciu -99...99 zodziais - changeTensToText
-
-    // TODO : sukurti funkcija kuri grazina skaiciu -999...999 zodziais - changeHundredsToText
-
-    // TODO : sukurti funkcija kuri grazina skaiciu -9999...9999 zodziais - changeThousandsToText
-
-    // TODO : sukurti funkcija kuri grazina skaiciu -9999999...9999999 zodziais - changeMillionsToText
-
-    // TODO : sukurti funkcija kuri grazina skaiciu -9999999999...9999999999 zodziais - changeBilllionsToText
 
 
+        // TODO : sukurti funkcija kuri grazina skaiciu -19...19 zodziais - changeTeensToText
 
-    //Skaiciai zodziais:  
-    // "minus"; 
-    // "nulis", "vienas", "du", "trys", "keturi", "penki", "sesi", "septyni", "astuoni", "devyni"; 
-    // "desimt", "vienualika", "dvylika", "trylika", "keturiolika", "penkiolika", "sesiolika", "septyniolika", "astuoniolika", "devyniolika"; 
-    // "dvidesimt", "trisdesimt", "keturiasdesimt", "penkiasdesimt", "sesiasdesimt", "septyniasdesimt", "astuoniasdesimt", "devyniasdesimt"; 
-    // "simtas", "tukstantis", "milijonas", "milijardas"; 
-    // "simtai", "tukstanciai", "milijonai", "milijardai"; 
-    // "simtu", "tukstanciu", "milijonu", "milijardu"; 
-}
+        // TODO : sukurti funkcija kuri grazina skaiciu -999...999 zodziais - changeHundredsToText
+
+        // TODO : sukurti funkcija kuri grazina skaiciu -9999...9999 zodziais - changeThousandsToText
+
+        // TODO : sukurti funkcija kuri grazina skaiciu -9999999...9999999 zodziais - changeMillionsToText
+
+        // TODO : sukurti funkcija kuri grazina skaiciu -9999999999...9999999999 zodziais - changeBilllionsToText
+
+
+
+        //Skaiciai zodziais:  
+        // "minus"; 
+        // "nulis", "vienas", "du", "trys", "keturi", "penki", "sesi", "septyni", "astuoni", "devyni"; 
+        // "desimt", "vienualika", "dvylika", "trylika", "keturiolika", "penkiolika", "sesiolika", "septyniolika", "astuoniolika", "devyniolika"; 
+        // "dvidesimt", "trisdesimt", "keturiasdesimt", "penkiasdesimt", "sesiasdesimt", "septyniasdesimt", "astuoniasdesimt", "devyniasdesimt"; 
+        // "simtas", "tukstantis", "milijonas", "milijardas"; 
+        // "simtai", "tukstanciai", "milijonai", "milijardai"; 
+        // "simtu", "tukstanciu", "milijonu", "milijardu"; 
+    }
